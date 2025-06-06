@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Planner</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Budget Planner</h1>
+            <nav>
+                <a href="#" id="nav-login">Login</a>
+                <a href="#" id="nav-register">Register</a>
+                <a href="#" id="nav-dashboard" class="hidden">Dashboard</a>
+                <a href="#" id="nav-logout" class="hidden">Logout</a>
+            </nav>
+        </header>
+        <hr>
+
+        <main id="app-content">
+            <p>Welcome! Please login or register.</p>
+        </main>
+
+        <div id="login-view" class="hidden">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div><label for="login-username">Username:</label><input type="text" id="login-username" required></div>
+                <div><label for="login-password">Password:</label><input type="password" id="login-password" required></div>
+                <button type="submit">Login</button><p id="login-error" class="error"></p>
+            </form>
+        </div>
+
+        <div id="register-view" class="hidden">
+            <h2>Register</h2>
+            <form id="register-form">
+                <div><label for="register-username">Username:</label><input type="text" id="register-username" required></div>
+                <div><label for="register-password">Password:</label><input type="password" id="register-password" required></div>
+                <button type="submit">Register</button><p id="register-error" class="error"></p>
+            </form>
+        </div>
+
+        <div id="dashboard-view" class="hidden">
+            <h2>Dashboard</h2>
+            <p>Welcome, <span id="dash-username">User</span>!</p>
+
+            <section id="categories-section">
+                <h3>Categories</h3>
+                <form id="category-form">
+                    <input type="hidden" id="category-id">
+                    <div><label for="category-name">Name:</label><input type="text" id="category-name" required></div>
+                    <button type="submit" id="category-submit-btn">Add Category</button>
+                    <button type="button" id="category-cancel-edit-btn" class="hidden">Cancel Edit</button>
+                </form>
+                <p id="category-error" class="error"></p>
+                <table id="categories-table"><thead><tr><th>Name</th><th>Actions</th></tr></thead><tbody></tbody></table>
+            </section>
+            <hr>
+            <section id="transactions-section">
+                <h3>Transactions</h3>
+                <form id="transaction-form">
+                    <input type="hidden" id="transaction-id">
+                    <div><label for="transaction-amount">Amount:</label><input type="number" id="transaction-amount" step="0.01" required></div>
+                    <div><label for="transaction-type">Type:</label><select id="transaction-type"><option value="expense">Expense</option><option value="income">Income</option></select></div>
+                    <div><label for="transaction-date">Date:</label><input type="datetime-local" id="transaction-date" required></div>
+                    <div><label for="transaction-category">Category:</label><select id="transaction-category" required></select></div>
+                    <div><label for="transaction-description">Description (Optional):</label><input type="text" id="transaction-description"></div>
+                    <button type="submit" id="transaction-submit-btn">Add Transaction</button>
+                    <button type="button" id="transaction-cancel-edit-btn" class="hidden">Cancel Edit</button>
+                </form>
+                <p id="transaction-error" class="error"></p>
+                <table id="transactions-table"><thead><tr><th>Date</th><th>Category</th><th>Type</th><th>Amount</th><th>Description</th><th>Actions</th></tr></thead><tbody></tbody></table>
+            </section>
+            <hr>
+            <section id="goals-section">
+                <h3>Financial Goals</h3>
+                <form id="goal-form">
+                    <input type="hidden" id="goal-id">
+                    <div><label for="goal-name">Goal Name:</label><input type="text" id="goal-name" required></div>
+                    <div><label for="goal-target-amount">Target Amount:</label><input type="number" id="goal-target-amount" step="0.01" required></div>
+                    <div><label for="goal-current-amount">Current Amount:</label><input type="number" id="goal-current-amount" step="0.01" value="0" required></div>
+                    <div><label for="goal-target-date">Target Date (Optional):</label><input type="datetime-local" id="goal-target-date"></div>
+                    <button type="submit" id="goal-submit-btn">Add Goal</button>
+                    <button type="button" id="goal-cancel-edit-btn" class="hidden">Cancel Edit</button>
+                </form>
+                <p id="goal-error" class="error"></p>
+                <table id="goals-table">
+                    <thead><tr><th>Name</th><th>Target</th><th>Current</th><th>Progress</th><th>Target Date</th><th>Actions</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
