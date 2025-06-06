@@ -1,8 +1,9 @@
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from budget_planner.models.database import engine, init_db
+from budget_planner.models.data_models import create_tables
 
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    print("Initializing database and creating tables...")
+    # init_db() # init_db in the template doesn't create tables
+    create_tables(engine) # Explicitly create tables
+    print("Database initialized and tables created (if they didn't exist).")
+    print("Run this script again to ensure it doesn't crash, but it won't recreate tables.")
